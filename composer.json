@@ -1,0 +1,20 @@
+{
+  "name": "jlmsrl/prestashop-ider-login",
+  "description": "IDER Login - PrestaShop Plugin",
+  "keywords": [
+    "framework",
+    "ider",
+    "php",
+    "prestashop",
+    "openid"
+  ],
+  "type": "project",
+  "require": {
+    "jlmsrl/ider-openid-client-php": "~1.0",
+    "nilportugues/sql-query-builder": "^1.6"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "secure-http": false
+  }
+}
