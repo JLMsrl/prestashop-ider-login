@@ -27,7 +27,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ider_user_data` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `id_customer` int(11) NOT NULL,
     `user_field` varchar(255) NOT NULL,
-    `user_value` varchar(255) NOT NULL
+    `user_value` varchar(255) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 
