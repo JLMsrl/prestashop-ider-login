@@ -16,11 +16,9 @@
  * @license    https://www.ider.com/IDER-LICENSE-COMMUNITY.txt
  */
 
-/**
- * I kept this here in case we'll need to drop the ider_login table in the future.
- */
-
 $sql = array();
+
+$sql[] = "DROP TABLE IF EXISTS " . _DB_PREFIX_ . "ider_user_data;";
 
 foreach ($sql as $query) {
     if (Db::getInstance()->execute($query) == false) {
