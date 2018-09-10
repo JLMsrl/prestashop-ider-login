@@ -206,8 +206,8 @@ class IDER_Callback
             $address->id_country = Country::getByIso($userInfo['address.country']);
             $address->id_state = State::getIdByIso($userInfo['address.region']);
             $address->alias = "IDer";
-            $address->lastname = $userInfo['family_name'];
-            $address->firstname = $userInfo['given_name'];
+            $address->firstname = preg_replace('/[0-9]+/', '', $userInfo['given_name']);
+            $address->lastname = preg_replace('/[0-9]+/', '', $userInfo['family_name']);
             $address->address1 = $userInfo['address.street_address'];
             $address->postcode = $userInfo['address.postal_code'];
             $address->city = $userInfo['address.locality'];
@@ -239,8 +239,8 @@ class IDER_Callback
             // Build customer fields.
             $customer = new CustomerCore();
             $customer->email = $customerInfo->email;
-            $customer->firstname = $customerInfo->given_name;
-            $customer->lastname = $customerInfo->family_name;
+            $customer->firstname = preg_replace('/[0-9]+/', '', $customerInfo->given_name);
+            $customer->lastname = preg_replace('/[0-9]+/', '', $customerInfo->family_name);
             $customer->id_gender = ($customerInfo->gender == 'm') ? 1 : 2;
             $customer->birthday = $customerInfo->birthdate;
             $customer->active = true;
@@ -343,35 +343,6 @@ class IDER_Callback
             return true;
         }
         // Invalid customer specified.
-        return false;
-    }
-
-    /**
-     * Creates a new customer based on the given data.
-     */
-    public static function _create_customer_from_data(array $userData)
-    {
-        if (is_array($userData) && !empty($userData['user_token']) && !empty($userData['identity_token']))
-        {
-            $password = Tools::passwdGen();
-
-            // Build customer fields.
-            $customer = new CustomerCore();
-            $customer->firstname = $userData['user_first_name'];
-            $customer->lastname = $userData['user_last_name'];
-            $customer->id_gender = $userData['user_gender'];
-            $customer->birthday = $userData['user_birthdate'];
-            $customer->active = true;
-            $customer->deleted = false;
-            $customer->is_guest = false;
-            $customer->passwd = Tools::hash($password);
-
-            // Create a new user account.
-            if ($customer->add()) {
-                return true; // $customer->id;
-            }
-        }
-        //Error
         return false;
     }
 
