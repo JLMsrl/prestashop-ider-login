@@ -7,7 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'NilPortugues\\Sql\\QueryFormatter\\' => array($vendorDir . '/nilportugues/sql-query-formatter/src'),
-    'NilPortugues\\Sql\\QueryBuilder\\' => array($vendorDir . '/nilportugues/sql-query-builder/src'),
     'IDERConnect\\' => array($vendorDir . '/jlmsrl/ider-openid-client-php/src'),
 );

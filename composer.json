@@ -10,8 +10,7 @@
   ],
   "type": "project",
   "require": {
-    "jlmsrl/ider-openid-client-php": "~1.0",
-    "nilportugues/sql-query-builder": "^1.6"
+    "jlmsrl/ider-openid-client-php": "~1.0"
   },
   "config": {
     "preferred-install": "dist",

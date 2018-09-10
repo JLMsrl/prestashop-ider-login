@@ -19,8 +19,10 @@
 $sql = array();
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ider_login` (
-    `id_customer` int(11) NOT NULL,
-    `sub` varchar(50) NOT NULL
+    `id_customer` int(11) NOT NULL UNIQUE,
+    `id_address` varchar(50) UNIQUE,
+    `sub` varchar(50) NOT NULL UNIQUE,
+    PRIMARY KEY (`id_customer`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 
 $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ider_user_data` (
@@ -28,7 +30,8 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'ider_user_data` (
     `id_customer` int(11) NOT NULL,
     `user_field` varchar(255) NOT NULL,
     `user_value` varchar(255) NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    UNIQUE KEY (`id_customer`, `user_field`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 
 foreach ($sql as $query) {

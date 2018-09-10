@@ -11,11 +11,6 @@ class ComposerStaticInit6c3a650126edc26aca0042892a508dbe
         array (
             'phpseclib\\' => 10,
         ),
-        'N' => 
-        array (
-            'NilPortugues\\Sql\\QueryFormatter\\' => 32,
-            'NilPortugues\\Sql\\QueryBuilder\\' => 30,
-        ),
         'I' => 
         array (
             'IDERConnect\\' => 12,
@@ -26,14 +21,6 @@ class ComposerStaticInit6c3a650126edc26aca0042892a508dbe
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
-        ),
-        'NilPortugues\\Sql\\QueryFormatter\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nilportugues/sql-query-formatter/src',
-        ),
-        'NilPortugues\\Sql\\QueryBuilder\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nilportugues/sql-query-builder/src',
         ),
         'IDERConnect\\' => 
         array (
