@@ -47,7 +47,7 @@ class IDER_Server
     public static function getIDerOpenIdClientIstance()
     {
         // Overriding the redirect URL checking for subdirectory installations.
-        \IDERConnect\IDEROpenIDClient::$IDERRedirectURL = IDer_Helpers::getBaseResourcePath() . \IDERConnect\IDEROpenIDClient::$IDERRedirectURL;
+        \IDERConnect\IDEROpenIDClient::$BaseUrl = IDER_Helpers::getBasePath();
 
         // Overriding log file folder.
         \IDERConnect\IDEROpenIDClient::$IDERLogFile = IDER_MODULE_DIR . '/log/ider-connect.log';

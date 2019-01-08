@@ -25,7 +25,19 @@ class IDER_Helpers extends Tools
      */
     public static function getBasePath()
     {
-        return trim(_PS_BASE_URL_, '/') . '/' . trim(__PS_BASE_URI__, '/') . '/';
+
+        $baseUrl = trim(_PS_BASE_URL_, '/') . '/';
+
+        $baseUri = trim(__PS_BASE_URI__, '/');
+
+        // Do some check on subfolder.
+        if(!empty($baseUri)) {
+
+            $baseUri = $baseUri . '/';
+
+        }
+
+        return $baseUrl . $baseUri;
     }
 
     /**

@@ -10,7 +10,7 @@
   ],
   "type": "project",
   "require": {
-    "jlmsrl/ider-openid-client-php": "~1.0"
+    "jlmsrl/ider-openid-client-php": "~1"
   },
   "config": {
     "preferred-install": "dist",

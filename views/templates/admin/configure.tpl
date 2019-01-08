@@ -21,7 +21,7 @@
 	<h4>{l s='Setting up IDer Client Account' mod='ider_login'}</h4>
 	<ul style="padding-left: 15px;">
 		<li>
-			{l s='Create a new client and set the Redirect URI (aka callback URL) to:' mod='ider_login'} <strong>IDer_helpers::getBasePath()idercallback</strong>
+			{l s='Create a new client and set the Redirect URI (aka callback URL) to:' mod='ider_login'} <strong>{IDer_helpers::getBasePath()}idercallback</strong>
 		</li>
 		<li>
 			{l s='Copy the Client ID and Client Secret in the text fields below.' mod='ider_login'}

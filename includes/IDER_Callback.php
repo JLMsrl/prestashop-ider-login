@@ -28,7 +28,7 @@ class IDER_Callback
         $userInfo = IDER_UserInfoManager::normalize($userInfo);
 
         // Trigger an hook where a user can handle as he want
-        $handled = Hook::exec('iderBeforeCallbackHandler', array($userInfo, $_SESSION['openid_connect_scope']));
+        $handled = Hook::exec('iderLoginBeforeCallbackHandler', array($userInfo, $_SESSION['openid_connect_scope']));
 
         // if user function hadn't been exclusive let's resume the standard flow
         if (!$handled) {
@@ -72,8 +72,10 @@ class IDER_Callback
         // unset the sub
         unset($userInfo->sub);
 
+        $userEmail = (is_array($user)) ? $user['email'] : $user->email;
+
         // check for email changes
-        if($user['email'] !== $userInfo->email){
+        if($userEmail !== $userInfo->email){
              if(self::_local_mail_identical($userID, $user['email'])){
                  self::_update_user_mail($userID, $userInfo->email);
              }else{
@@ -96,7 +98,7 @@ class IDER_Callback
         if (Context::getContext()->customer->isLogged()) {
 
             // pass the control to user defined functions and landing pages
-            Hook::exec('iderAfterCallbackHandler', array($userInfo, $_SESSION['openid_connect_scope']));
+            Hook::exec('iderLoginAfterCallbackHandler', array($userInfo, $_SESSION['openid_connect_scope']));
 
             // Redirect the user to the right page
             Tools::redirect(Configuration::get('IDER_LOGIN_WELCOME_PAGE'));
@@ -125,6 +127,7 @@ class IDER_Callback
         $template = str_replace('ider_error_description', $errorMsg, $template);
 
         die($template);
+
     }
     /**
      * Logout the user.
