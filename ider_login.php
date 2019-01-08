@@ -370,8 +370,13 @@ class IDer_Login extends Module
     /**
      * Before the IDer handler.
      */
-    public function hookIderLoginBeforeCallbackHandler($userInfo, $scopes)
+    public function hookIderLoginBeforeCallbackHandler($params)
     {
+
+        $userInfo = $params[0];
+        $scopes = $params[1];
+
+
         $handled = false;
         if (in_array('yourscope', $scopes)) {
             // do something...
@@ -385,8 +390,12 @@ class IDer_Login extends Module
     /**
      * After the IDer handler.
      */
-    public function hookIderLoginAfterCallbackHandler($userInfo, $scopes)
+    public function hookIderLoginAfterCallbackHandler($params)
     {
+
+        $userInfo = $params[0];
+        $scopes = $params[1];
+
         if(!empty($scopes)){
 
             if (in_array('yourscope', $scopes)) {
